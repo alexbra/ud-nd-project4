@@ -1,5 +1,5 @@
 #Udacity Nanodegree. Project 4. Identifying Fraud from Enron Email
-##Dataset and goal of project
+##1. Dataset and goal of project
 ###Goal
 The main purpose of project is develop the machine learning algorithm to detect person of interest(POI) from dataset.
 A POI is someone who was indicted for fraud, settled with the government, or testified in exchange for immunity.
@@ -16,7 +16,7 @@ Dataset contains some ouliers. The TOTAL row is the biggest Enron E+F dataset ou
 Moreover, there’s 4 more outliers with big salary and bonus. Two people made bonuses more than 6 million dollars, and a salary of over 1 million dollars. 
 There's no mistake. Ken Lay and Jeffrey Skilling made such money. So, leave these data points in and examine it with others.
 
-##Feature selection process
+##2. Feature selection process
 ###I selected the following features:
 `exercised_stock_options`, `shared_receipt_with_poi`, `fraction_from_poi`, `expenses`, `other`
 
@@ -48,7 +48,7 @@ I’ve received the following feature importances:
 I also tried to change some features by hand but each time received worse performance.
 To see full log of feature selection process go to the next block of this page.
 
-##Pick an algorithm
+##3. Pick an algorithm
 I tried the Naive Bayes, SVM and Decisions tree algorithms. 
 
 ###All results I include in the following table
@@ -68,7 +68,7 @@ Got a divide by zero when trying out: SVC(C=1.0, cache_size=200, class_weight=No
 ###Choosen algorithm
 Based on performance level I picked Decisions Tree as a final algorithm.
 
-##Tune the algorithm
+##4. Tune the algorithm
 ###Reasons for algorithm tuning
 The main reason is get better results from algorithm. Parameters of ML classifiers have a big influence in output results. 
 The purpose of tuning is to find best sets of parameters for particular dataset.
@@ -84,14 +84,14 @@ I apply GridSearchCV to tune the following parameters
 
 As a result, I received better performance with `min_samples_split` = '2' and `Splitter` = 'best'
 
-##Validation
+##5. Validation
 According to [sklearn documentation][sklearn_mistake] one of the main and classical mistakes in validation is using the same data for training and testing. 
 >Learning the parameters of a prediction function and testing it on the same data is a methodological mistake: 
 >a model that would just repeat the labels of the samples that it has just seen would have a perfect score but would fail to predict anything useful on yet-unseen data. This situation is called overfitting.
 
 To validate my analysis I applied [stratified shuffle split cross validation][StratifiedShuffleSplit] developed by Udacity and defined in tester.py file
 
-##Evaluation metrics
+##6. Evaluation metrics
 I used precision and recall evaluation metrics to estimate model.
 Decisions Tree algorithm with choosen features and tuned parameters has
 
@@ -108,9 +108,9 @@ Precision and Recall have almost identical values. In other words we can say.
 We should make true positive rate higher to good flagging POI when it's present in the test data.
 
 
-##Algorithm outputs log
+#Algorithm outputs log
 
-##Related links
+#Related links
 - [Documentation of scikit-learn 0.15][1]
 - [sklearn tutorial][2]
 - [Recursive Feature Elimination][3]
