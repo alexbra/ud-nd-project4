@@ -1,7 +1,7 @@
 #Udacity Nanodegree. Project 4. Identifying Fraud from Enron Email
 ##Dataset and goal of project
 ###Goal
-The main purpose of project is develop the machine learning algorithm to detect people of interest from dataset.
+The main purpose of project is develop the machine learning algorithm to detect person of interest(POI) from dataset.
 A POI is someone who was indicted for fraud, settled with the government, or testified in exchange for immunity.
 
 ###Dataset
@@ -75,10 +75,12 @@ The purpose of tuning is to find best sets of parameters for particular dataset.
 
 ###GridSearchCV
 I apply GridSearchCV to tune the following parameters
+
 |Parameter          |Settings for investigation |
 |:------------------|:--------------------------|
 |min_samples_split	| [2,6,8,10]                | 
 |Splitter	        | (random,best)             |
+|max_depth	        | [None,2,4,6,8,10,15,20]   |
 
 As a result, I received better performance with `min_samples_split` = '2' and `Splitter` = 'best'
 
@@ -101,7 +103,7 @@ Precision and Recall have almost identical values. In other words we can say.
 В тоже самое время, наша модель не смогла определить POI 1190 раз
 
 Как я отметил вначале, наши данные разбалансированы. К тому же не все POI включены в dataset. Это создает определенные трудности для качественного анализа. 
-Мы должны стремится к повышению true/positive, т.к. основная задача - распознавание 
+Мы должны стремится к повышению true/positive, т.к. основная задача - распознавание POIs.
 
 We should make true positive rate higher to good flagging POI when it's present in the test data.
 
@@ -110,9 +112,15 @@ We should make true positive rate higher to good flagging POI when it's present 
 
 ##Related links
 - [Documentation of scikit-learn 0.15][1]
-- [Accuracy, Precision and Recall(in Russian)][2] 
+- [sklearn tutorial][2]
+- [Recursive Feature Elimination][3]
+- [Selecting good features – Part I: univariate selection][4]
+- [Accuracy, Precision and Recall(in Russian)][5] 
 
 [1]: http://scikit-learn.org/stable/documentation.html
-[2]: http://bazhenov.me/blog/2012/07/21/classification-performance-evaluation.html
+[2]: http://amueller.github.io/sklearn_tutorial/
+[3]: http://topepo.github.io/caret/rfe.html
+[4]: http://blog.datadive.net/selecting-good-features-part-i-univariate-selection/
+[5]: http://bazhenov.me/blog/2012/07/21/classification-performance-evaluation.html
 [StratifiedShuffleSplit]: http://scikit-learn.org/stable/modules/generated/sklearn.cross_validation.StratifiedShuffleSplit.html
 [sklearn_mistake]: http://scikit-learn.org/stable/modules/cross_validation.html 
