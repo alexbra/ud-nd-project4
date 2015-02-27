@@ -6,11 +6,35 @@ A POI is someone who was indicted for fraud, settled with the government, or tes
 
 ####Dataset
 We have Enron email+financial (E+F) dataset. It contains 146 Enron managers to investigate. Each sample in this dictionary containing 21 features. 
-18 people from this dataset labeled as POI. All of them have `poi` feature set as **1**. There's two imbalanced classes (many more non-POIs than POIs).
+18 people from this dataset labeled as POI. All of them have `poi` feature set as **True**. There's two imbalanced classes (many more non-POIs than POIs).
 
 There's example of one POI data point: 
-
-
+<code>
+[{"SKILLING JEFFREY K":{
+			'salary': 1111258, 
+			'to_messages': 3627, 
+			'deferral_payments': 'NaN', 
+			'total_payments': 8682716, 
+			'exercised_stock_options': 19250000, 
+			'bonus': 5600000, 
+			'restricted_stock': 6843672, 
+			'shared_receipt_with_poi': 2042, 
+			'restricted_stock_deferred': 'NaN', 
+			'total_stock_value': 26093672, 
+			'expenses': 29336, 
+			'loan_advances': 'NaN', 
+			'from_messages': 108, 
+			'other': 22122, 
+			'from_this_person_to_poi': 30, 
+			'poi': True, 
+			'director_fees': 'NaN', 
+			'deferred_income': 'NaN', 
+			'long_term_incentive': 1920000, 
+			'email_address': 'jeff.skilling@enron.com', 
+			'from_poi_to_this_person': 88
+			}
+}]
+</code>
 ####Outliers
 Dataset contains some outliers. The TOTAL row is the biggest Enron E+F dataset outlier. We should remove it from dataset for reason it's a spreadsheet quirk.
 Moreover, there’s 4 more outliers with big salary and bonus. Two people made bonuses more than 6 million dollars, and a salary of over 1 million dollars. 
@@ -113,7 +137,7 @@ At the same time Recall = 0.48 says only 48% of all POIs was detected.
 We have very imbalanced classes in E+F dataset. In addition, almost half of all POIs weren't included in dataset. 
 In such conditions result we received good enough, but it's not perfect, of course.
 
-#Feature selection log
+#Algorithm outputs log
 
 #Related links
 - [Documentation of scikit-learn 0.15][1]
