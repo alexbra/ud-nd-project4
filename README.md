@@ -53,6 +53,10 @@ They created on assumption POI have more intensive correspondence to each other.
 Also I create another feature. Messages to current person from specific email addresses, which belong to four POI outliers (e.g. Ken Lay etc.)
 * `from_specific_email` 
 
+####Plots of the new features
+![Figure 1](https://github.com/alexbra/ud-nd-project4/blob/master/img/figure_1.png)
+![Figure 2](https://github.com/alexbra/ud-nd-project4/blob/master/img/figure_2.png)
+
 Feature selection process include several iterations. 
 On the first step I created set of features based on data visualization and intuition. Then I examine three classificator on this features. Dtecision Trees was selected as main algorithm. 
 Since I choose Decision Trees as a classificator, I used feature importance method to optimize features for this dataset. 
@@ -237,6 +241,7 @@ In such conditions result we received good enough, but it's not perfect, of cour
                  'fraction_to_poi',                 
                  'exercised_stock_options',
                  'shared_receipt_with_poi'] 
+
 #####parameters				 
 	clf = tree.DecisionTreeClassifier(random_state=42, min_samples_split=12,max_depth=6, splitter='best'	
 #####Metrics 	
